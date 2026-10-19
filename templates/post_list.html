@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Postlar</h1>
+    {% for post in posts %}
+        <div class="card">
+            <h2><a href="{{ url('post_detail', args=[post.pk]) }}">{{ post.title }}</a></h2>
+            <p>{{ post.text|truncate(150) }}</p>
+            <p class="muted">{{ post.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+        </div>
+    {% else %}
+        <p>Hozircha postlar yo'q.</p>
+    {% endfor %}
+{% endblock %}

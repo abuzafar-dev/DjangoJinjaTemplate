@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <h1>{{ title }}</h1>
+        <form method="post">
+            {{ csrf_input }}
+            {{ form.as_p() }}
+            <button class="btn" type="submit">Saqlash</button>
+        </form>
+    </div>
+{% endblock %}

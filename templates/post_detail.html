@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h1>{{ post.title }}</h1>
+        <p class="muted">{{ post.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+        <p>{{ post.text }}</p>
+        <a class="btn" href="{{ url('post_update', args=[post.pk]) }}">Tahrirlash</a>
+        <form method="post" action="{{ url('post_delete', args=[post.pk]) }}" style="display:inline">
+            {{ csrf_input }}
+            <button class="btn btn-danger" type="submit">O'chirish</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{{ static('css/style.css') }}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="{{ url('post_list') }}">Bosh sahifa</a>
+        <a href="{{ url('post_create') }}">Yangi post</a>
+    </div>
+</header>
+<main class="container">
+    {% for message in get_messages(request) %}
+        <div class="message">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
